@@ -56,6 +56,7 @@ ingest:
 	python3 scripts/ingest_adapter.py
 
 clean:
+	containerlab destroy --topo topology.clab.yml --cleanup 2>/dev/null || true
 	rm -rf evidence/reference-state test-results.xml
 	find . -name "__pycache__" -type d -exec rm -rf {} + 2>/dev/null || true
 

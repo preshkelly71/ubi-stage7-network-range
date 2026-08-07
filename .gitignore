@@ -5,11 +5,13 @@ __pycache__/
 *.pyo
 
 # Test outputs
-test-results.xml
 
 # Evidence directories (generated at runtime)
-evidence/
-pcaps/
+evidence/*
+!evidence/reference-state/
+!evidence/eve.json
+pcaps/*
+!pcaps/.gitkeep
 
 # Dev artifacts
 *.zip

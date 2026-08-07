@@ -29,7 +29,7 @@ the implementation during defense.
 - Topology orchestration: containerlab
 - Routing: FRRouting 10.2.1
 - Firewall: nftables
-- Sensor: Suricata 7.0.8
+- Sensor: Suricata 7.0.7
 - Testing: pytest 8.3.3
 
 ## Reproduction Steps

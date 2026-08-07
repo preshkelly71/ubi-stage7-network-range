@@ -22,3 +22,4 @@ generate_guide.js
 # OS files
 .DS_Store
 Thumbs.db
+clab-*/

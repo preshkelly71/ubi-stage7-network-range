@@ -44,6 +44,12 @@ Prerequisites
 
 Quick Start
 
+Clone the repository:
+
+  git clone https://github.com/preshkelly71/ubi-stage7-network-range.git
+  cd ubi-stage7-network-range
+
+
   docker version && containerlab version
   make images
   make lab

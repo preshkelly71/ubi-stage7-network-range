@@ -8,6 +8,15 @@
 
 ---
 
+**Repository:** https://github.com/preshkelly71/ubi-stage7-network-range
+
+## Clone and Reproduce
+
+```bash
+git clone https://github.com/preshkelly71/ubi-stage7-network-range.git
+cd ubi-stage7-network-range
+make clean && make lab && make test
+
 ## Overview
 
 This repository builds a seven-zone enterprise network entirely as code using

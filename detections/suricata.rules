@@ -1,0 +1,25 @@
+# UBI Stage 7 candidate detections - handed forward to Stage 8.
+# These watch the mirrored (SPAN) traffic the sensor receives. They are
+# candidate detections, not the enforcement mechanism (nftables enforces;
+# these rules give the SOC visibility into attempts and boundary tests).
+
+# Guest zone claiming a source address it does not own (anti-spoof, ties
+# to NET-28 / NF_SPOOF_DENY counter evidence).
+alert ip !10.81.70.0/24 any -> 10.81.10.0/27 any (msg:"UBI-A7 possible spoofed source toward management zone"; flow:to_server; classtype:bad-unknown; sid:9000001; rev:1;)
+
+# Any inbound attempt to the payroll database's non-assigned port range
+# (evidence for NET-24: dmz -> servers database nonassigned port deny).
+alert tcp 10.81.60.0/28 any -> 10.81.50.0/27 5433 (msg:"UBI-A7 dmz relay probing non-assigned database port"; flow:to_server,established; classtype:policy-violation; sid:9000002; rev:1;)
+
+# Internet-sourced attempt to reach the internal servers zone directly
+# (evidence for NET-10: internet -> servers any deny).
+alert ip 203.0.113.0/30 any -> 10.81.50.0/27 any (msg:"UBI-A7 internet-sourced connection attempt toward internal servers zone"; classtype:policy-violation; sid:9000003; rev:1;)
+
+# Repeated administrative SSH attempts from a non-management source
+# toward the gateway or any internal zone (evidence for NET-08/NET-19
+# style admin-SSH denials, and detects fault2 if reintroduced).
+alert tcp !10.81.10.0/27 any -> $HOME_NET 22 (msg:"UBI-A7 administrative SSH attempt from a non-management zone"; flow:to_server; flags:S; classtype:attempted-admin; sid:9000004; rev:1;)
+
+# DNS traffic outside the centralized resolver in the servers zone
+# (observability control for the "central-dns" dependency requirement).
+alert udp $HOME_NET any -> !10.81.50.0/27 53 (msg:"UBI-A7 DNS query bypassing centralized resolver"; classtype:policy-violation; sid:9000005; rev:1;)

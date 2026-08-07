@@ -1,0 +1,6 @@
+clab-soc-a3-d81/
+pcaps/*.pcap
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/

@@ -1,0 +1,43 @@
+{
+  "stage": 7,
+  "project": "Design the Network, Prove It Holds",
+  "evidence_marker": "UBI-A7-DEAAAB67E594",
+  "assignment_set": "D4",
+  "intern_code": "UBI-2026-0155",
+  "deadline": "2026-08-11T18:10:00+01:00",
+  "topology": "containerlab",
+  "zones": [
+    {"name": "management", "cidr": "10.81.10.0/27", "interface": "eth2"},
+    {"name": "finance", "cidr": "10.81.20.0/26", "interface": "eth3"},
+    {"name": "engineering", "cidr": "10.81.30.0/25", "interface": "eth4"},
+    {"name": "users", "cidr": "10.81.40.0/24", "interface": "eth5"},
+    {"name": "servers", "cidr": "10.81.50.0/27", "interface": "eth6"},
+    {"name": "guest", "cidr": "10.81.70.0/24", "interface": "eth7"},
+    {"name": "dmz", "cidr": "10.81.60.0/28", "interface": "eth8"}
+  ],
+  "faults": [
+    {"id": 1, "description": "Remove established-return handling on finance path", "type": "baseline"},
+    {"id": 2, "description": "Broaden management ingress beyond declared source", "type": "baseline"},
+    {"id": 3, "description": "Remove DMZ-to-server traffic from sensor mirror", "type": "baseline"},
+    {"id": 4, "description": "Break only UDP DNS return-state handling (D4 private)", "type": "d4-private"}
+  ],
+  "tests": {
+    "framework": "pytest",
+    "total_assertions": 33,
+    "published_paths": 30,
+    "output_format": "junit-xml",
+    "output_file": "test-results.xml"
+  },
+  "detections": {
+    "engine": "suricata",
+    "rule_count": 5,
+    "rule_file": "detections/suricata.rules"
+  },
+  "telemetry_adapter": {
+    "input": "evidence/eve.json",
+    "output": "evidence/telemetry-adapter-output.jsonl",
+    "target_schema": "stage5-6-shared"
+  },
+  "commit_hash": "TO_BE_FILLED_AFTER_GIT_PUSH",
+  "repository_url": "TO_BE_FILLED"
+}

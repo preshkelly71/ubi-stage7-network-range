@@ -1,4 +1,4 @@
-f08b119a9e64321584f0308b7f26b596bbd55eca36d1f569c03a89268675c595  ./.gitignore
+53e02f9f32639a5cb03df2944d66705f10856c5f01d7e7abef8e5b23b4e58956  ./.gitignore
 3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd  ./.pytest_cache/.gitignore
 37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4  ./.pytest_cache/CACHEDIR.TAG
 73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad  ./.pytest_cache/README.md
@@ -12,7 +12,7 @@ f08b119a9e64321584f0308b7f26b596bbd55eca36d1f569c03a89268675c595  ./.gitignore
 feeac6b689e64d7a2172b5e09f73d0c38ecd7b57a9c59e242c1b3f0f3f1acedb  ./Makefile
 9686688968c3a2fd6bde22182395600a8ce306af5ac8984e7833d0861ebc3e04  ./README.md
 332fb931373021b41650d2581273b47cbb13e693f0def36fbbc92af7bd831bc8  ./address-plan.json
-92a61b18435de8c797b338340ac748735a392b9cc541ed90a591a5a319fca645  ./assessment-manifest.json
+5b8a2fe40e1c5dbd8e135cfe5ced46a713da358cd26c993dcc6eb7abf5036fff  ./assessment-manifest.json
 cfdef51db0f1f642f1403f510546cc142ac74e0ac693692c28a72f83e3c7027b  ./configs/core/frr.conf
 a1babce45089a4a40f0c27550ab6ddfa5b903daa9a6d27e42da55e00adb1a67a  ./configs/gateway/baseline-faults/fault1-finance-established.conf
 4602fc7ff1529a4bd3553150a93a4061f69e61d34fdc969eb5f32557782251a5  ./configs/gateway/baseline-faults/fault2-management-ingress-broadened.conf

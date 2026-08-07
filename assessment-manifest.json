@@ -9,17 +9,18 @@
     "manifest_signature": "UBI-A7-DEAAAB67E594",
     "verified_before_use": true
   },
-  "commit": "HEAD_PLACEHOLDER",
+  "commit": "863f2b1",
+  "repo_url": "https://github.com/preshkelly71/ubi-stage7-network-range",
   "supported_environment": {
     "os": "WSL2 (Ubuntu) on Windows",
     "cpu": "x86_64",
     "memory_gb": 16,
     "tool_versions": {
       "docker": "Docker Desktop with WSL2 backend",
-      "containerlab": "latest",
+      "containerlab": "0.77.0",
       "frrouting": "10.2.1",
       "nftables": "kernel",
-      "suricata": "7.0.8",
+      "suricata": "7.0.7",
       "pytest": "8.3.3",
       "python": "3.x (venv)"
     }
@@ -36,7 +37,7 @@
       "failed": 0,
       "report": "test-results.xml"
     },
-    "runtime_seconds": 97,
+    "runtime_seconds": 119,
     "peak_memory_mb": 0,
     "output_hashes": {}
   },

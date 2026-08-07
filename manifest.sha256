@@ -1,4 +1,4 @@
-11141c4d0eae1b0effa003f1f44d70e17f0e60979f29c92d1e55ed7c4504597b  ./.gitignore
+f08b119a9e64321584f0308b7f26b596bbd55eca36d1f569c03a89268675c595  ./.gitignore
 3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd  ./.pytest_cache/.gitignore
 37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4  ./.pytest_cache/CACHEDIR.TAG
 73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad  ./.pytest_cache/README.md
@@ -12,7 +12,7 @@
 feeac6b689e64d7a2172b5e09f73d0c38ecd7b57a9c59e242c1b3f0f3f1acedb  ./Makefile
 9686688968c3a2fd6bde22182395600a8ce306af5ac8984e7833d0861ebc3e04  ./README.md
 332fb931373021b41650d2581273b47cbb13e693f0def36fbbc92af7bd831bc8  ./address-plan.json
-766906cf6927bb98a21860fafdb3ca45c85e5eafc5e1847c201640f7574a1698  ./assessment-manifest.json
+92a61b18435de8c797b338340ac748735a392b9cc541ed90a591a5a319fca645  ./assessment-manifest.json
 cfdef51db0f1f642f1403f510546cc142ac74e0ac693692c28a72f83e3c7027b  ./configs/core/frr.conf
 a1babce45089a4a40f0c27550ab6ddfa5b903daa9a6d27e42da55e00adb1a67a  ./configs/gateway/baseline-faults/fault1-finance-established.conf
 4602fc7ff1529a4bd3553150a93a4061f69e61d34fdc969eb5f32557782251a5  ./configs/gateway/baseline-faults/fault2-management-ingress-broadened.conf
@@ -24,7 +24,7 @@ a68a0d14cbfde4c1865df0619de93901a4f72ab96c5aa635559b4c4df3229896  ./configs/gate
 443b23f46f488334a31d9939ee145a3aeff29281b74680a1518c6c5096dfd0ad  ./decision-log.md
 7864f97f92d426507ac61faa4f05a5e5c1392ea55c49825e8b63c6353dd37083  ./detections/suricata.rules
 4f28d64547536b27156df08de80a15f3180fe8f13d06809ac1b2a8d406ba7e56  ./evidence-index.csv
-70dec3e2e2cedcebc432862f6ae43a1e8911a2e1294b659cee2119b7a7087b8c  ./evidence/eve.json
+497c84c1401ee562b83857748ddb2e6288d13088d62b2f6ab6ad3eea91600378  ./evidence/eve.json
 465bb0a08173a1f77e9c098d0c90be6fa42f2d6515e6ac019b4a4f5be3e68787  ./fault-recovery-log.md
 3078439a190404955b62a6a666b089aa5f4dae5b6d54aea272816f1b68539ff6  ./integrity-attestation.md
 9c9ec09a95aee4ffd63a29f4d1741f664c4d77faef5965a3dc689f108f3b1ff3  ./scripts/collect-state.sh

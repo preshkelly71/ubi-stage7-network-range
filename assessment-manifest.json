@@ -38,6 +38,6 @@
     "output": "evidence/telemetry-adapter-output.jsonl",
     "target_schema": "stage5-6-shared"
   },
-  "commit_hash": "TO_BE_FILLED_AFTER_GIT_PUSH",
-  "repository_url": "TO_BE_FILLED"
+  "commit_hash": "cef3123",
+  "repository_url": "https://github.com/preshkelly71/ubi-stage7-network-range"
 }

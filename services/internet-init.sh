@@ -13,8 +13,8 @@ set -eu
     socat -T5 TCP4-LISTEN:443,reuseaddr,fork SYSTEM:'printf "HTTP/1.1 200 OK\r\nContent-Length: 2\r\n\r\nok"'
   done ) &
 
+# UDP DNS responder on port 53 — persistent forked listener for NET-01/NET-13
+socat -T5 UDP4-LISTEN:53,reuseaddr,fork SYSTEM:'printf "dns-ok"' &
 
-# UDP DNS responder on port 53 — replies to any UDP packet (for NET-01/NET-13)
-( while true; do
-    socat -T2 UDP4-RECVFROM:53,reuseaddr SYSTEM:'printf "dns-ok"'
-  done ) &
+# NTP responder on port 123 (for NET-29 users NTP return-path test)
+socat -T5 UDP4-LISTEN:123,reuseaddr,fork SYSTEM:'printf "ntp-ok"' &

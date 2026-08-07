@@ -13,7 +13,7 @@ images:
 	docker build -t soc-sensor:latest -f Dockerfile.sensor .
 
 lab: dirs images
-	containerlab deploy --topo topology.clab.yml
+	containerlab deploy --reconfigure --topo topology.clab.yml
 	sleep 3
 	$(MAKE) baseline
 

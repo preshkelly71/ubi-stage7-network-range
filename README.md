@@ -46,16 +46,21 @@ Quick Start
 
 Clone the repository:
 
-  git clone https://github.com/preshkelly71/ubi-stage7-network-range.git
-  cd ubi-stage7-network-range
+ git clone https://github.com/preshkelly71/ubi-stage7-network-range.git
+cd ubi-stage7-network-range
 
+docker version && containerlab version
+make images
+make lab
 
-  docker version && containerlab version
-  make images
-  make lab
-  make test
-  make collect
-  make destroy
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r tests/requirements.txt pytest
+
+make test
+make collect
+make destroy
+
 
 Build Details
 

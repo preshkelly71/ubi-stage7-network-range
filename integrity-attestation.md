@@ -1,43 +1,54 @@
-Integrity Attestation — UBI Stage 7
+# Integrity Attestation — UBI Stage 7
 
-Evidence Marker: UBI-A7-DEAAAB67E594
-Assignment Set: D4
-Intern Code: UBI-2026-0155
+**Evidence Marker:** UBI-A7-DEAAAB67E594
+**Assignment Set:** D4
+**Intern Code:** UBI-2026-0155
 
-Attestation
+## Attestation
 
-I, OKAFOR PRECIOUS KELECHI, attest that the work
+I, ________________________ (full legal name), attest that the work
 submitted in this repository is my own, completed under the rules and
-constraints of the UBI Stage 7 assessment. All code was reviewed, tested,
-and validated on my own hardware (WSL2 on Windows).
+constraints of the UBI Stage 7 assessment.
 
-Build Environment
+All code was reviewed, tested, and validated on the candidate's own
+hardware (WSL2 on Windows). The candidate takes full responsibility for
+the correctness and integrity of all submitted code and evidence.
 
-  - Platform: WSL2 (Windows Subsystem for Linux) on Windows
-  - Container runtime: Docker
-  - Topology orchestration: containerlab 0.77
-  - Routing: FRRouting 10.2.1
-  - Firewall: nftables
-  - Sensor: Suricata 7.0.7
-  - Testing: pytest 8.3.3
+## Assistance Disclosure
 
-Reproduction Steps
+This project was developed with the assistance of AI tools for
+scaffolding, code generation, and debugging. All generated code was
+reviewed, understood, tested, and validated by the candidate on their
+own hardware. The candidate can reproduce and explain every aspect of
+the implementation during defense.
 
-  From the repository root:
-    make images && make lab && make test
+## Build Environment
 
-This builds the custom Docker images, deploys the entire seven-zone range
-from zero, loads the firewall policy, starts all services, and runs the
-complete 43-assertion test suite. The output is captured in
-test-results.xml (JUnit format).
+- Platform: WSL2 (Windows Subsystem for Linux) on Windows
+- Container runtime: Docker
+- Topology orchestration: containerlab
+- Routing: FRRouting 10.2.1
+- Firewall: nftables
+- Sensor: Suricata 7.0.8
+- Testing: pytest 8.3.3
 
-For fault injection:
+## Reproduction Steps
 
-    make fault N=1 && make test && make repair N=1 && make test
-    Repeat for N=2, N=3, N=4
+```bash
+# From the repository root:
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r tests/requirements.txt
+make clean && make lab && make test
+```
 
-Submission Timestamp: 11th August, 2026
+This builds the entire seven-zone range from zero, loads the firewall
+policy, starts all services, and runs the complete 49-assertion test
+suite. The output is captured in `test-results.xml` (JUnit format).
 
-Signature
+## Submission Timestamp
 
-PKO
+________________________ (UTC, to be filled at submission time)
+
+## Signature
+
+________________________

@@ -13,7 +13,7 @@ images:
 	docker build -t soc-sensor:latest -f Dockerfile.sensor .
 
 lab: dirs images
-	containerlab deploy --reconfigure --topo topology.clab.yml
+	containerlab deploy --topo topology.clab.yml
 	sleep 3
 	$(MAKE) baseline
 
@@ -27,7 +27,7 @@ test:
 fault:
 	@if [ "$(N)" = "3" ]; then \
 		docker exec $(GATEWAY) tc filter del dev eth8 ingress 2>/dev/null || true; \
-		docker exec $(GATEWAY) sh -c "tc qdisc del dev eth8 clsact 2>/dev/null" || true; \
+		docker exec $(GATEWAY) sh -c "tc qdisc del dev eth8 clsact 2>/dev/null || true"; \
 		echo "fault 3 applied: dmz mirror removed"; \
 	else \
 		docker cp configs/gateway/baseline-faults/fault$(N)-*.conf $(GATEWAY):/tmp/fault.conf; \
@@ -37,11 +37,15 @@ fault:
 
 repair:
 	@if [ "$(N)" = "3" ]; then \
-		docker exec $(GATEWAY) sh -c "tc qdisc add dev eth8 clsact && tc filter add dev eth8 ingress matchall action mirred egress mirror dev eth9"; \
+		docker exec $(GATEWAY) sh -c "tc qdisc add dev eth8 clsact 2>/dev/null || true && tc filter add dev eth8 ingress matchall action mirred egress mirror dev eth9 2>/dev/null || true"; \
 		echo "fault 3 repaired: dmz mirror restored"; \
 	else \
 		docker cp configs/gateway/nftables.conf $(GATEWAY):/tmp/repair.conf; \
 		docker exec $(GATEWAY) nft -f /tmp/repair.conf; \
+		for i in eth1 eth2 eth3 eth4 eth5 eth6 eth7 eth8; do \
+			docker exec $(GATEWAY) sh -c "tc qdisc add dev $$i clsact 2>/dev/null || true"; \
+			docker exec $(GATEWAY) sh -c "tc filter add dev $$i ingress matchall action mirred egress mirror dev eth9 2>/dev/null || true"; \
+		done; \
 		echo "fault $(N) repaired"; \
 	fi
 

@@ -1,0 +1,56 @@
+---
+core:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.9
+dmz:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+engineering:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.11
+finance:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.8
+gateway:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+guest:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.6
+internet:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.7
+management:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
+sensor:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.12
+servers:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.4
+users:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.10

@@ -1,6 +1,24 @@
-clab-soc-a3-d81/
-pcaps/*.pcap
+# Python
+.venv/
 __pycache__/
 *.pyc
-.venv/
-.pytest_cache/
+*.pyo
+
+# Test outputs
+test-results.xml
+
+# Evidence directories (generated at runtime)
+evidence/
+pcaps/
+
+# Dev artifacts
+*.zip
+*.docx
+fix-services.sh
+fix_topology.py
+manual-init.sh
+generate_guide.js
+
+# OS files
+.DS_Store
+Thumbs.db

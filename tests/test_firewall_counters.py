@@ -4,10 +4,15 @@ Validates that nftables counters exist and increment for key policy rules.
 These tests produce machine-readable counter evidence (not screenshots).
 """
 import json
+import os
 import subprocess
 import pytest
 
-LAB = "soc-a3-d81"
+_PLAN_PATH = os.path.join(os.path.dirname(__file__), "..", "address-plan.json")
+with open(_PLAN_PATH) as _f:
+    _PLAN = json.load(_f)
+
+LAB = _PLAN["lab_name"]
 GATEWAY = f"clab-{LAB}-gateway"
 
 def docker_exec(node, cmd, timeout=15):

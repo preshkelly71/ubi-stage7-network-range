@@ -1,14 +1,27 @@
 """
 UBI Stage 7 - Telemetry / observability tests
 Verifies the sensor is receiving mirrored traffic and producing events.
+IPs loaded from address-plan.json (variant file) — no hardcoded addresses.
 """
+import json
+import os
 import subprocess
 import time
 import pytest
 
-LAB = "soc-a3-d81"
+_PLAN_PATH = os.path.join(os.path.dirname(__file__), "..", "address-plan.json")
+with open(_PLAN_PATH) as _f:
+    _PLAN = json.load(_f)
+
+LAB = _PLAN["lab_name"]
 GATEWAY = f"clab-{LAB}-gateway"
 SENSOR  = f"clab-{LAB}-sensor"
+
+IP = {
+    zone: _PLAN["zones"][zone]["host_ip"]
+    for zone in _PLAN["zones"]
+}
+IP["internet"] = _PLAN["internet_ip"]
 
 def docker_exec(node, cmd, timeout=15):
     return subprocess.run(
@@ -32,7 +45,7 @@ def test_sensor_receives_mirrored_traffic():
     """Generate traffic and verify the sensor saw it via Suricata stats."""
     # Generate a connection from finance to servers
     docker_exec(f"clab-{LAB}-finance",
-        f"nc -z -w2 10.81.50.10 8443", timeout=5)
+        f"nc -z -w2 {IP['servers']} 8443", timeout=5)
     time.sleep(3)
     # Check Suricata has flow events
     r = docker_exec(SENSOR, "grep -c 'flow' /var/log/suricata/eve.json 2>/dev/null || echo 0",

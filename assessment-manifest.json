@@ -1,43 +1,63 @@
 {
-  "stage": 7,
-  "project": "Design the Network, Prove It Holds",
-  "evidence_marker": "UBI-A7-DEAAAB67E594",
-  "assignment_set": "D4",
-  "intern_code": "UBI-2026-0155",
-  "deadline": "2026-08-11T18:10:00+01:00",
-  "topology": "containerlab",
-  "zones": [
-    {"name": "management", "cidr": "10.81.10.0/27", "interface": "eth2"},
-    {"name": "finance", "cidr": "10.81.20.0/26", "interface": "eth3"},
-    {"name": "engineering", "cidr": "10.81.30.0/25", "interface": "eth4"},
-    {"name": "users", "cidr": "10.81.40.0/24", "interface": "eth5"},
-    {"name": "servers", "cidr": "10.81.50.0/27", "interface": "eth6"},
-    {"name": "guest", "cidr": "10.81.70.0/24", "interface": "eth7"},
-    {"name": "dmz", "cidr": "10.81.60.0/28", "interface": "eth8"}
+  "schema_version": "1.0",
+  "project_id": "SOC-A3",
+  "variant": "D4",
+  "candidate_binding": "UBI-2026-0155",
+  "assigned_pack": {
+    "file_name": "soc-analysis-stage-7-shared-b1.tar.gz",
+    "sha256": "33281c8381cf7a7744f76e016d7b3cb3957f491422a8987dd7d483890009e1fd",
+    "manifest_signature": "UBI-A7-DEAAAB67E594",
+    "verified_before_use": true
+  },
+  "commit": "TO_BE_FILLED_AFTER_GIT_PUSH",
+  "supported_environment": {
+    "os": "WSL2 (Ubuntu) on Windows",
+    "cpu": "x86_64",
+    "memory_gb": 16,
+    "tool_versions": {
+      "docker": "Docker Desktop with WSL2 backend",
+      "containerlab": "latest",
+      "frrouting": "10.2.1",
+      "nftables": "kernel",
+      "suricata": "7.0.8",
+      "pytest": "8.3.3",
+      "python": "3.x (venv)"
+    }
+  },
+  "commands": {
+    "provision": "make images",
+    "build": "make lab",
+    "test": "python3 -m venv .venv && source .venv/bin/activate && pip install -r tests/requirements.txt && make test",
+    "clean": "make clean && make destroy"
+  },
+  "results": {
+    "public_tests": {
+      "passed": 49,
+      "failed": 0,
+      "report": "test-results.xml"
+    },
+    "runtime_seconds": 97,
+    "peak_memory_mb": 0,
+    "output_hashes": {}
+  },
+  "inputs": [
+    "address-plan.json",
+    "topology.clab.yml",
+    "configs/gateway/nftables.conf",
+    "configs/gateway/bootstrap.sh",
+    "configs/core/frr.conf"
   ],
-  "faults": [
-    {"id": 1, "description": "Remove established-return handling on finance path", "type": "baseline"},
-    {"id": 2, "description": "Broaden management ingress beyond declared source", "type": "baseline"},
-    {"id": 3, "description": "Remove DMZ-to-server traffic from sensor mirror", "type": "baseline"},
-    {"id": 4, "description": "Break only UDP DNS return-state handling (D4 private)", "type": "d4-private"}
+  "outputs": [
+    "test-results.xml",
+    "evidence/reference-state/",
+    "evidence/telemetry-adapter-output.jsonl"
   ],
-  "tests": {
-    "framework": "pytest",
-    "total_assertions": 33,
-    "published_paths": 30,
-    "output_format": "junit-xml",
-    "output_file": "test-results.xml"
-  },
-  "detections": {
-    "engine": "suricata",
-    "rule_count": 5,
-    "rule_file": "detections/suricata.rules"
-  },
-  "telemetry_adapter": {
-    "input": "evidence/eve.json",
-    "output": "evidence/telemetry-adapter-output.jsonl",
-    "target_schema": "stage5-6-shared"
-  },
-  "commit_hash": "cef3123",
-  "repository_url": "https://github.com/preshkelly71/ubi-stage7-network-range"
+  "manual_preconditions": [
+    "Docker Desktop running with WSL2 backend",
+    "containerlab installed on WSL2"
+  ],
+  "known_limitations": [
+    "Sensor uses alpine:3.20 base image with manual Suricata install instead of jasonish/suricata:7.0.8 for WSL2 stability",
+    "Gateway uses custom Dockerfile.gateway with pre-baked packages instead of runtime apk add"
+  ]
 }

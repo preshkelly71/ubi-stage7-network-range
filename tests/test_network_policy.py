@@ -2,20 +2,32 @@
 UBI Stage 7 - Network Policy Test Suite
 Assignment set D4 | Evidence marker UBI-A7-DEAAAB67E594
 
-Every test maps to a published control-test-matrix row (NET-01 .. NET-30).
-Tests exercise real L4 connections through the containerlab topology and
+Every NET-XX test maps exactly to its published control-test-matrix.csv
+row (NET-01 .. NET-30, verified against the shared evidence archive
+soc-analysis-stage-7-shared-b1.tar.gz, SHA-256 33281c83...9e1fd). A small
+number of "extra" tests (test_extra_*) cover adjacent paths that add
+confidence but are not themselves one of the 30 published rows. Tests
+exercise real L4 connections through the containerlab topology and
 collect packet/counter evidence from nftables, not screenshots.
 """
 import json
+import os
 import re
 import subprocess
 import time
 import pytest
 
 # ---------------------------------------------------------------------------
+# Load address-plan.json (variant file)
+# ---------------------------------------------------------------------------
+_PLAN_PATH = os.path.join(os.path.dirname(__file__), "..", "address-plan.json")
+with open(_PLAN_PATH) as _f:
+    _PLAN = json.load(_f)
+
+# ---------------------------------------------------------------------------
 # Container name helpers
 # ---------------------------------------------------------------------------
-LAB = "soc-a3-d81"
+LAB = _PLAN["lab_name"]
 
 def cn(node):
     return f"clab-{LAB}-{node}"
@@ -31,18 +43,20 @@ GST    = cn("guest")
 DMZ    = cn("dmz")
 INET   = cn("internet")
 
-# Zone IP anchors (first usable host in each CIDR)
+# Zone IPs from the variant file
 IP = {
-    "gateway": "10.81.254.2",
-    "management": "10.81.10.10",
-    "finance": "10.81.20.10",
-    "engineering": "10.81.30.10",
-    "users": "10.81.40.10",
-    "servers": "10.81.50.10",
-    "guest": "10.81.70.10",
-    "dmz": "10.81.60.10",
-    "internet": "203.0.113.2",
+    "gateway": _PLAN["core"]["peer_ip"],
+    "management": _PLAN["zones"]["management"]["host_ip"],
+    "finance": _PLAN["zones"]["finance"]["host_ip"],
+    "engineering": _PLAN["zones"]["engineering"]["host_ip"],
+    "users": _PLAN["zones"]["users"]["host_ip"],
+    "servers": _PLAN["zones"]["servers"]["host_ip"],
+    "guest": _PLAN["zones"]["guest"]["host_ip"],
+    "dmz": _PLAN["zones"]["dmz"]["host_ip"],
+    "internet": _PLAN["internet_ip"],
 }
+# Service ports from the variant file (not hardcoded)
+SVC = _PLAN["services"]
 
 # ---------------------------------------------------------------------------
 # Low-level exec helpers
@@ -175,21 +189,32 @@ class TestGuestInternet:
         assert tcp_connect(GST, IP["internet"], 443)
 
 # ---------------------------------------------------------------------------
-# NET-02: Guest -> finance (deny)
+# NET-02: Guest -> servers (deny) — matrix: guest, servers, any, deny
 # ---------------------------------------------------------------------------
 
 class TestGuestDeny:
-    def test_NET_02_guest_to_finance_denied(self):
-        """NET-02: guest cannot reach finance zone on any port."""
+    def test_NET_02_guest_to_servers_denied(self):
+        """NET-02: guest cannot reach servers zone on any port."""
+        result = tcp_connect(GST, IP["servers"], 8443, timeout=3)
+        assert not result, "Guest reached servers — should be denied"
+
+    def test_extra_guest_to_finance_denied(self):
+        """Extra coverage: guest cannot reach finance zone either."""
         result = tcp_connect(GST, IP["finance"], 8443, timeout=3)
         assert not result, "Guest reached finance — should be denied"
 
 # ---------------------------------------------------------------------------
-# NET-03: Guest -> engineering (deny)
+# NET-03: Users -> finance payroll database (deny) — matrix: users,
+# finance, payroll database, deny
 # ---------------------------------------------------------------------------
 
-    def test_NET_03_guest_to_engineering_denied(self):
-        """NET-03: guest cannot reach engineering zone."""
+    def test_NET_03_users_to_finance_payroll_db_denied(self):
+        """NET-03: users cannot reach finance's payroll database (TCP/5432)."""
+        result = tcp_connect(USR, IP["finance"], 5432, timeout=3)
+        assert not result, "Users reached finance payroll DB — should be denied"
+
+    def test_extra_guest_to_engineering_denied(self):
+        """Extra coverage: guest cannot reach engineering zone."""
         result = tcp_connect(GST, IP["engineering"], 22, timeout=3)
         assert not result, "Guest reached engineering — should be denied"
 
@@ -230,11 +255,17 @@ class TestManagementAdmin:
         assert tcp_connect(MGMT, IP["gateway"], 22)
 
 # ---------------------------------------------------------------------------
-# NET-08: Finance -> gateway admin SSH (deny)
+# NET-08: Users -> network devices (gateway) SSH (deny) — matrix: users,
+# network devices, SSH, deny
 # ---------------------------------------------------------------------------
 
-    def test_NET_08_finance_to_gateway_ssh_denied(self):
-        """NET-08: finance cannot SSH into the gateway."""
+    def test_NET_08_users_to_gateway_ssh_denied(self):
+        """NET-08: users cannot SSH into the gateway (network devices)."""
+        result = tcp_connect(USR, IP["gateway"], 22, timeout=3)
+        assert not result, "Users reached gateway SSH — should be denied"
+
+    def test_extra_finance_to_gateway_ssh_denied(self):
+        """Extra coverage: finance cannot SSH into the gateway either."""
         result = tcp_connect(FIN, IP["gateway"], 22, timeout=3)
         assert not result, "Finance reached gateway SSH — should be denied"
 
@@ -266,11 +297,18 @@ class TestDMZToServers:
         assert tcp_connect(DMZ, IP["servers"], 5432)
 
 # ---------------------------------------------------------------------------
-# NET-12: DMZ -> servers non-assigned port (deny)
+# NET-12: DMZ -> management (deny) — matrix: dmz, management, any, deny
 # ---------------------------------------------------------------------------
 
-    def test_NET_12_dmz_to_servers_nonassigned_denied(self):
-        """NET-12: DMZ cannot reach servers on non-assigned port (TCP/8443)."""
+    def test_NET_12_dmz_to_management_denied(self):
+        """NET-12: DMZ cannot reach the management zone on any port."""
+        result = tcp_connect(DMZ, IP["management"], 22, timeout=3)
+        assert not result, "DMZ reached management — should be denied"
+
+    def test_extra_dmz_to_servers_nonassigned_denied(self):
+        """Extra coverage: DMZ cannot reach servers on a non-assigned
+        port (TCP/8443) either — this scenario is also covered exactly
+        by NET-24 (database non-assigned port, TCP/5433)."""
         result = tcp_connect(DMZ, IP["servers"], 8443, timeout=3)
         assert not result, "DMZ reached servers on non-assigned port — should be denied"
 
@@ -310,12 +348,20 @@ class TestFinancePayrollDB:
         assert tcp_connect(FIN, IP["servers"], 5432)
 
 # ---------------------------------------------------------------------------
-# NET-17: Finance -> internet (deny)
+# NET-17: Finance -> engineering (deny) — matrix: finance, engineering,
+# any, deny
 # ---------------------------------------------------------------------------
 
 class TestFinanceInternet:
-    def test_NET_17_finance_to_internet_denied(self):
-        """NET-17: finance cannot reach internet on any port."""
+    def test_NET_17_finance_to_engineering_denied(self):
+        """NET-17: finance cannot reach engineering zone on any port."""
+        result = tcp_connect(FIN, IP["engineering"], 22, timeout=3)
+        assert not result, "Finance reached engineering — should be denied"
+
+    def test_extra_finance_to_internet_denied(self):
+        """Extra coverage: finance cannot reach internet on any port
+        (finance is deliberately kept off the internet uplink; it only
+        talks to servers for DNS/NTP/payroll — see decision-log D-004)."""
         result = tcp_connect(FIN, IP["internet"], 443, timeout=3)
         assert not result, "Finance reached internet — should be denied"
 
@@ -347,12 +393,20 @@ class TestServersInternet:
         assert tcp_connect(SRV, IP["internet"], 443)
 
 # ---------------------------------------------------------------------------
-# NET-21: Servers -> finance (deny)
+# NET-21: Servers -> users (deny) — matrix: servers, users, new TCP
+# session, deny
 # ---------------------------------------------------------------------------
 
 class TestServersDeny:
-    def test_NET_21_servers_to_finance_denied(self):
-        """NET-21: servers cannot initiate connections to finance."""
+    def test_NET_21_servers_to_users_denied(self):
+        """NET-21: servers cannot initiate a new TCP session to users."""
+        result = tcp_connect(SRV, IP["users"], 22, timeout=3)
+        assert not result, "Servers reached users — should be denied"
+
+    def test_extra_servers_to_finance_denied(self):
+        """Extra coverage: servers cannot initiate connections to
+        finance either — servers only ever responds to finance, never
+        initiates toward it."""
         result = tcp_connect(SRV, IP["finance"], 8443, timeout=3)
         assert not result, "Servers reached finance — should be denied"
 
@@ -432,16 +486,21 @@ class TestSpoofing:
         anti-spoof ingress filter. Verify via NF_SPOOF_DENY counter."""
         before = nft_counter("NF_SPOOF_DENY")
         # Send a packet from guest but with a source IP that belongs to
-        # management (10.81.10.10) — this should trigger the anti-spoof rule
+        # management — this should trigger the anti-spoof rule
         # on the guest interface (eth7).
+        _gst_ip = IP["guest"]
+        _gst_cidr = _PLAN["zones"]["guest"]["host_cidr"].split("/")[1]
+        _mgmt_ip = IP["management"]
+        _mgmt_cidr = _PLAN["zones"]["management"]["host_cidr"].split("/")[1]
+        _gst_gw = _PLAN["zones"]["guest"]["gateway_ip"]
         docker_exec(GST,
-            f"ip addr del 10.81.70.10/24 dev eth1 2>/dev/null; "
-            f"ip addr add 10.81.10.10/27 dev eth1 2>/dev/null; "
-            f"ip route add default via 10.81.70.1 dev eth1 onlink 2>/dev/null; "
+            f"ip addr del {_gst_ip}/{_gst_cidr} dev eth1 2>/dev/null; "
+            f"ip addr add {_mgmt_ip}/{_mgmt_cidr} dev eth1 2>/dev/null; "
+            f"ip route add default via {_gst_gw} dev eth1 onlink 2>/dev/null; "
             f"nc -z -w2 {IP['servers']} 8443; "
-            f"ip addr del 10.81.10.10/27 dev eth1 2>/dev/null; "
-            f"ip addr add 10.81.70.10/24 dev eth1 2>/dev/null; "
-            f"ip route add default via 10.81.70.1 dev eth1 2>/dev/null",
+            f"ip addr del {_mgmt_ip}/{_mgmt_cidr} dev eth1 2>/dev/null; "
+            f"ip addr add {_gst_ip}/{_gst_cidr} dev eth1 2>/dev/null; "
+            f"ip route add default via {_gst_gw} dev eth1 onlink 2>/dev/null",
             timeout=8)
         after = nft_counter("NF_SPOOF_DENY")
         # Restore is best-effort; either way the spoofed packet should

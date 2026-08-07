@@ -3,7 +3,6 @@ set -eu
 # UBI Stage 7 gateway bootstrap - builds the firewall/router node entirely
 # from code. No manual node configuration is performed after this runs.
 
-apk add --no-cache nftables iproute2 iproute2-tc tcpdump openssh-server
 
 # --- addressing (address-plan second octet 81) ---
 # Use || true on each address add in case of stale state from interrupted deploy

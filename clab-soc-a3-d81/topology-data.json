@@ -1,0 +1,562 @@
+{
+  "name": "soc-a3-d81",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-6066c84b1e82",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "core": {
+      "index": "0",
+      "shortname": "core",
+      "longname": "clab-soc-a3-d81-core",
+      "fqdn": "core.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/core",
+      "kind": "linux",
+      "image": "quay.io/frrouting/frr:10.2.1",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.9",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::9",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/core",
+        "clab-node-longname": "clab-soc-a3-d81-core",
+        "clab-node-name": "core",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "dmz": {
+      "index": "1",
+      "shortname": "dmz",
+      "longname": "clab-soc-a3-d81-dmz",
+      "fqdn": "dmz.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/dmz",
+      "kind": "linux",
+      "image": "soc-servers:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/dmz",
+        "clab-node-longname": "clab-soc-a3-d81-dmz",
+        "clab-node-name": "dmz",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "engineering": {
+      "index": "2",
+      "shortname": "engineering",
+      "longname": "clab-soc-a3-d81-engineering",
+      "fqdn": "engineering.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/engineering",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.11",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::b",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/engineering",
+        "clab-node-longname": "clab-soc-a3-d81-engineering",
+        "clab-node-name": "engineering",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "finance": {
+      "index": "3",
+      "shortname": "finance",
+      "longname": "clab-soc-a3-d81-finance",
+      "fqdn": "finance.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/finance",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.8",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::8",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/finance",
+        "clab-node-longname": "clab-soc-a3-d81-finance",
+        "clab-node-name": "finance",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "gateway": {
+      "index": "4",
+      "shortname": "gateway",
+      "longname": "clab-soc-a3-d81-gateway",
+      "fqdn": "gateway.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/gateway",
+      "kind": "linux",
+      "image": "soc-gateway:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/gateway",
+        "clab-node-longname": "clab-soc-a3-d81-gateway",
+        "clab-node-name": "gateway",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "guest": {
+      "index": "5",
+      "shortname": "guest",
+      "longname": "clab-soc-a3-d81-guest",
+      "fqdn": "guest.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/guest",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/guest",
+        "clab-node-longname": "clab-soc-a3-d81-guest",
+        "clab-node-name": "guest",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "internet": {
+      "index": "6",
+      "shortname": "internet",
+      "longname": "clab-soc-a3-d81-internet",
+      "fqdn": "internet.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/internet",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.7",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::7",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/internet",
+        "clab-node-longname": "clab-soc-a3-d81-internet",
+        "clab-node-name": "internet",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "management": {
+      "index": "7",
+      "shortname": "management",
+      "longname": "clab-soc-a3-d81-management",
+      "fqdn": "management.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/management",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/management",
+        "clab-node-longname": "clab-soc-a3-d81-management",
+        "clab-node-name": "management",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "sensor": {
+      "index": "8",
+      "shortname": "sensor",
+      "longname": "clab-soc-a3-d81-sensor",
+      "fqdn": "sensor.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/sensor",
+      "kind": "linux",
+      "image": "soc-sensor:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.12",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::c",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/sensor",
+        "clab-node-longname": "clab-soc-a3-d81-sensor",
+        "clab-node-name": "sensor",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "servers": {
+      "index": "9",
+      "shortname": "servers",
+      "longname": "clab-soc-a3-d81-servers",
+      "fqdn": "servers.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/servers",
+      "kind": "linux",
+      "image": "soc-servers:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/servers",
+        "clab-node-longname": "clab-soc-a3-d81-servers",
+        "clab-node-name": "servers",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    },
+    "users": {
+      "index": "10",
+      "shortname": "users",
+      "longname": "clab-soc-a3-d81-users",
+      "fqdn": "users.soc-a3-d81.io",
+      "group": "",
+      "labdir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/users",
+      "kind": "linux",
+      "image": "soc-host:latest",
+      "mgmt-net": "",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.10",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::a",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "main",
+        "clab-git-hash": "ab59511",
+        "clab-mgmt-net-bridge": "br-6066c84b1e82",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/home/lenovo/soc-stage7/clab-soc-a3-d81/users",
+        "clab-node-longname": "clab-soc-a3-d81-users",
+        "clab-node-name": "users",
+        "clab-node-type": "",
+        "clab-owner": "lenovo",
+        "clab-topo-file": "/home/lenovo/soc-stage7/topology.clab.yml",
+        "containerlab": "soc-a3-d81"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "core",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:84:52:e4",
+          "peer": "z"
+        },
+        "z": {
+          "node": "gateway",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:75:7a:23",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "core",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8d:6f:1f",
+          "peer": "z"
+        },
+        "z": {
+          "node": "internet",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:57:9a:29",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:0d:19:2f",
+          "peer": "z"
+        },
+        "z": {
+          "node": "management",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:ac:2f:12",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth3",
+          "mac": "aa:c1:ab:fe:14:64",
+          "peer": "z"
+        },
+        "z": {
+          "node": "finance",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:37:89:de",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth4",
+          "mac": "aa:c1:ab:00:80:5b",
+          "peer": "z"
+        },
+        "z": {
+          "node": "engineering",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:53:d3:9b",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth5",
+          "mac": "aa:c1:ab:a6:73:eb",
+          "peer": "z"
+        },
+        "z": {
+          "node": "users",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:25:c2:00",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth6",
+          "mac": "aa:c1:ab:b7:0e:4f",
+          "peer": "z"
+        },
+        "z": {
+          "node": "servers",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:c7:97:84",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth7",
+          "mac": "aa:c1:ab:10:59:35",
+          "peer": "z"
+        },
+        "z": {
+          "node": "guest",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:fb:85:ca",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth8",
+          "mac": "aa:c1:ab:29:0f:bb",
+          "peer": "z"
+        },
+        "z": {
+          "node": "dmz",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:38:89:83",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth9",
+          "mac": "aa:c1:ab:bc:64:99",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sensor",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:8b:61:e2",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "gateway",
+          "interface": "eth10",
+          "mac": "aa:c1:ab:a2:a6:9a",
+          "peer": "z"
+        },
+        "z": {
+          "node": "sensor",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:68:4c:93",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

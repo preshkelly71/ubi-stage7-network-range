@@ -9,7 +9,7 @@
     "manifest_signature": "UBI-A7-DEAAAB67E594",
     "verified_before_use": true
   },
-  "commit": "863f2b1",
+  "commit": "fc2c4fb",
   "repo_url": "https://github.com/preshkelly71/ubi-stage7-network-range",
   "supported_environment": {
     "os": "WSL2 (Ubuntu) on Windows",

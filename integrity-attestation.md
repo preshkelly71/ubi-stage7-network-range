@@ -6,7 +6,7 @@
 
 ## Attestation
 
-I, ________________________ (full legal name), attest that the work
+I, PRECIOUS KELECHI OKAFOR (full legal name), attest that the work
 submitted in this repository is my own, completed under the rules and
 constraints of the UBI Stage 7 assessment.
 
@@ -47,8 +47,8 @@ suite. The output is captured in `test-results.xml` (JUnit format).
 
 ## Submission Timestamp
 
-________________________ (UTC, to be filled at submission time)
+14 August, 2026 (UTC)
 
 ## Signature
 
-________________________
+P.K.O

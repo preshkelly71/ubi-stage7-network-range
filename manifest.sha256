@@ -2,7 +2,7 @@ d02ee64360305fdb763d9dde05afd0093250cc18f4f8645e572448a22f266395  ./.gitignore
 3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd  ./.pytest_cache/.gitignore
 37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4  ./.pytest_cache/CACHEDIR.TAG
 73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad  ./.pytest_cache/README.md
-44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  ./.pytest_cache/v/cache/lastfailed
+a10cabcfb58620ec9ae19cf2e2bcef2dbb61753ffd1234e2cada5187f7ea7d64  ./.pytest_cache/v/cache/lastfailed
 1b3761693b87aae561edcdf887700bcc0e69dd922f4aa72a52d0da2c8c930d05  ./.pytest_cache/v/cache/nodeids
 4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945  ./.pytest_cache/v/cache/stepwise
 1bd12472b4d1dec779b9691e0f1d58449b5a3779f9d2a57deeb27acc347336d3  ./Dockerfile.gateway
@@ -24,7 +24,7 @@ a68a0d14cbfde4c1865df0619de93901a4f72ab96c5aa635559b4c4df3229896  ./configs/gate
 443b23f46f488334a31d9939ee145a3aeff29281b74680a1518c6c5096dfd0ad  ./decision-log.md
 7864f97f92d426507ac61faa4f05a5e5c1392ea55c49825e8b63c6353dd37083  ./detections/suricata.rules
 4f28d64547536b27156df08de80a15f3180fe8f13d06809ac1b2a8d406ba7e56  ./evidence-index.csv
-76adbe574510eac7c86be058433d3082f8ffe6188093453be8a7531327d0f270  ./evidence/eve.json
+7558c23ebdd371576ead0c0005ebd989d94897c9ba197659b2a2d98be4d93013  ./evidence/eve.json
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./evidence/reference-state/.gitkeep
 465bb0a08173a1f77e9c098d0c90be6fa42f2d6515e6ac019b4a4f5be3e68787  ./fault-recovery-log.md
 a288437537074d5aa3912bf7e273fa917ec289511c7df88009730ca785b3e76e  ./integrity-attestation.md
@@ -38,7 +38,7 @@ fb0bbbf6cc5e511c2103c50569aa16a09148a75141840b1f10195cad0f4ad041  ./services/int
 f46b238b052c6179b6d617a1627eacb5dc5bed4c6a9e0037ef58e69f8cf00e85  ./services/sensor-init.sh
 a816be5f3b8d86188c9cfa0cac46758ea918cc0e6f172142320c121ae9263055  ./services/servers-init.sh
 fdb3dcebb405d18f3dca19224babba8d4ce74ef1897793c7d3075b5b7d47e2ec  ./telemetry/suricata.yaml
-03b3cc6d83dc9a380807a43a6ae2dcaf7a5400fbb903b1f4c20b768c086dbda5  ./test-results.xml
+f3e02c073981d206f27dfc36e6efaba48a2e341537016045dbbef4a34e57713a  ./test-results.xml
 bcc76d46b2377fe6e3bc858ded1f6be1718b616b5f1cbe22124c3e6bc7d36b91  ./tests/requirements.txt
 388e43a1368882496bd09396f704a2cc5b7feca6bb4a630c7a1510a4eaacd731  ./tests/test_firewall_counters.py
 3a56fd21fc682fdf4285274a23e6e23dfd2cce332af494aa55b936771846bf16  ./tests/test_network_policy.py

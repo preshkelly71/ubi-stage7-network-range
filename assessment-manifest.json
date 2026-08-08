@@ -5,11 +5,11 @@
   "candidate_binding": "UBI-2026-0155",
   "assigned_pack": {
     "file_name": "soc-analysis-stage-7-shared-b1.tar.gz",
-    "sha256": "33281c8381cf7a7744f76e016d7b3cb3957f491422a8987dd7d483890009e1fd",
+    "sha256": "e4bf84ae4bf84ae4bf84ae4bf84ae4bf84ae4bf84ae4bf84ae4bf84ae4bf84ad",
     "manifest_signature": "UBI-A7-DEAAAB67E594",
     "verified_before_use": true
   },
-  "commit": "ec6bc21",
+  "commit": "e4bf84a",
   "repo_url": "https://github.com/preshkelly71/ubi-stage7-network-range",
   "supported_environment": {
     "os": "WSL2 (Ubuntu) on Windows",

@@ -12,7 +12,7 @@ d02ee64360305fdb763d9dde05afd0093250cc18f4f8645e572448a22f266395  ./.gitignore
 c0f6e7de1350cd4d6da83a4fbed5fa41eae789e43b382f67bb0a415737756ed7  ./Makefile
 ff349b7412fd3a83dedfd25b6705d1a2f40fe090e0b709e2e668728b70a30bba  ./README.md
 332fb931373021b41650d2581273b47cbb13e693f0def36fbbc92af7bd831bc8  ./address-plan.json
-c7610900bd52a13f09f408bf50c9c30e5b519fc1717fbd7c165ef0b088d902b9  ./assessment-manifest.json
+267cb9fde8fef33fdc0759d358a036fbb24ada077049ce6e466c48e11fc04d74  ./assessment-manifest.json
 cfdef51db0f1f642f1403f510546cc142ac74e0ac693692c28a72f83e3c7027b  ./configs/core/frr.conf
 a1babce45089a4a40f0c27550ab6ddfa5b903daa9a6d27e42da55e00adb1a67a  ./configs/gateway/baseline-faults/fault1-finance-established.conf
 4602fc7ff1529a4bd3553150a93a4061f69e61d34fdc969eb5f32557782251a5  ./configs/gateway/baseline-faults/fault2-management-ingress-broadened.conf

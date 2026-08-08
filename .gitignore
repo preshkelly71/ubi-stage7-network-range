@@ -10,7 +10,6 @@ __pycache__/
 evidence/*
 !evidence/reference-state/
 !evidence/eve.json
-pcaps/*
 !pcaps/.gitkeep
 
 # Dev artifacts

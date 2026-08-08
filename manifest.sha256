@@ -1,10 +1,4 @@
-1496a129b4fea2149b656e434eba58d0d28c9ce49ff2b8949aeab437cd4c91b3  ./.gitignore
-3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd  ./.pytest_cache/.gitignore
-37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4  ./.pytest_cache/CACHEDIR.TAG
-73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad  ./.pytest_cache/README.md
-44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  ./.pytest_cache/v/cache/lastfailed
-1b3761693b87aae561edcdf887700bcc0e69dd922f4aa72a52d0da2c8c930d05  ./.pytest_cache/v/cache/nodeids
-4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945  ./.pytest_cache/v/cache/stepwise
+3b2eabcac0f70021e7ba797001842530bd6eb51c3aeb323f05e13bc2fac83e07  ./.gitignore
 1bd12472b4d1dec779b9691e0f1d58449b5a3779f9d2a57deeb27acc347336d3  ./Dockerfile.gateway
 04ab01ddab19b6fa9d281d55bcf015955308eb76f4d146a8aaf373f42d134bae  ./Dockerfile.host
 43b3c2db7ef61cb06d89be68b226b7293675a7818f162ac9ea5d1f2c5ac16ad8  ./Dockerfile.sensor
@@ -12,7 +6,7 @@
 c0f6e7de1350cd4d6da83a4fbed5fa41eae789e43b382f67bb0a415737756ed7  ./Makefile
 ff349b7412fd3a83dedfd25b6705d1a2f40fe090e0b709e2e668728b70a30bba  ./README.md
 332fb931373021b41650d2581273b47cbb13e693f0def36fbbc92af7bd831bc8  ./address-plan.json
-c14dfab8b3109182ab05e41d4ca4628be59ae506e9165f65ecc9a4cddd953c7d  ./assessment-manifest.json
+1d53f8a35797679454518b531acdac799b71667a5260d75ef2ea7623270681ab  ./assessment-manifest.json
 cfdef51db0f1f642f1403f510546cc142ac74e0ac693692c28a72f83e3c7027b  ./configs/core/frr.conf
 a1babce45089a4a40f0c27550ab6ddfa5b903daa9a6d27e42da55e00adb1a67a  ./configs/gateway/baseline-faults/fault1-finance-established.conf
 4602fc7ff1529a4bd3553150a93a4061f69e61d34fdc969eb5f32557782251a5  ./configs/gateway/baseline-faults/fault2-management-ingress-broadened.conf
@@ -24,7 +18,7 @@ a68a0d14cbfde4c1865df0619de93901a4f72ab96c5aa635559b4c4df3229896  ./configs/gate
 443b23f46f488334a31d9939ee145a3aeff29281b74680a1518c6c5096dfd0ad  ./decision-log.md
 7864f97f92d426507ac61faa4f05a5e5c1392ea55c49825e8b63c6353dd37083  ./detections/suricata.rules
 4f28d64547536b27156df08de80a15f3180fe8f13d06809ac1b2a8d406ba7e56  ./evidence-index.csv
-4afc304f9ad6028d0339c292dd270a33fc3b80a142ef764b50c53ea47738bfd9  ./evidence/eve.json
+a026fe2657bf744ff2dc166cd13bc37afbb06c024f60c5a85f99768942eb9b25  ./evidence/eve.json
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./evidence/reference-state/.gitkeep
 465bb0a08173a1f77e9c098d0c90be6fa42f2d6515e6ac019b4a4f5be3e68787  ./fault-recovery-log.md
 a288437537074d5aa3912bf7e273fa917ec289511c7df88009730ca785b3e76e  ./integrity-attestation.md

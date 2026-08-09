@@ -6,7 +6,7 @@
 c0f6e7de1350cd4d6da83a4fbed5fa41eae789e43b382f67bb0a415737756ed7  ./Makefile
 ff349b7412fd3a83dedfd25b6705d1a2f40fe090e0b709e2e668728b70a30bba  ./README.md
 332fb931373021b41650d2581273b47cbb13e693f0def36fbbc92af7bd831bc8  ./address-plan.json
-fd6037f2d70f606a142a89d34f83b8907d71f4fa88d892baeebda3ea89cff6b8  ./assessment-manifest.json
+1ab533bb403b5db36e389bbf516b65abb89f0d30bc3579fd5dd0e7388ce8736c  ./assessment-manifest.json
 cfdef51db0f1f642f1403f510546cc142ac74e0ac693692c28a72f83e3c7027b  ./configs/core/frr.conf
 a1babce45089a4a40f0c27550ab6ddfa5b903daa9a6d27e42da55e00adb1a67a  ./configs/gateway/baseline-faults/fault1-finance-established.conf
 4602fc7ff1529a4bd3553150a93a4061f69e61d34fdc969eb5f32557782251a5  ./configs/gateway/baseline-faults/fault2-management-ingress-broadened.conf
@@ -18,7 +18,7 @@ a68a0d14cbfde4c1865df0619de93901a4f72ab96c5aa635559b4c4df3229896  ./configs/gate
 443b23f46f488334a31d9939ee145a3aeff29281b74680a1518c6c5096dfd0ad  ./decision-log.md
 7864f97f92d426507ac61faa4f05a5e5c1392ea55c49825e8b63c6353dd37083  ./detections/suricata.rules
 4f28d64547536b27156df08de80a15f3180fe8f13d06809ac1b2a8d406ba7e56  ./evidence-index.csv
-d86ef963aa1abd49ea1c1ae284db25a1d5c3d8d4ef0dbaa995b82dbce6c7f6a8  ./evidence/eve.json
+029de9f3fba5ce6db01276bbf81fb1863be48c43465e79bb652abc1a17d7e885  ./evidence/eve.json
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./evidence/reference-state/.gitkeep
 465bb0a08173a1f77e9c098d0c90be6fa42f2d6515e6ac019b4a4f5be3e68787  ./fault-recovery-log.md
 a288437537074d5aa3912bf7e273fa917ec289511c7df88009730ca785b3e76e  ./integrity-attestation.md
@@ -33,7 +33,7 @@ fb0bbbf6cc5e511c2103c50569aa16a09148a75141840b1f10195cad0f4ad041  ./services/int
 f46b238b052c6179b6d617a1627eacb5dc5bed4c6a9e0037ef58e69f8cf00e85  ./services/sensor-init.sh
 a816be5f3b8d86188c9cfa0cac46758ea918cc0e6f172142320c121ae9263055  ./services/servers-init.sh
 fdb3dcebb405d18f3dca19224babba8d4ce74ef1897793c7d3075b5b7d47e2ec  ./telemetry/suricata.yaml
-4c73102fa73d01f4a93482dc71b227dd3d04dcc3b30bcd88d8d32a527a87be05  ./test-results.xml
+b7bf3ad69de6d367a2b056c271d940a08c3040424a899e78472d5874a60f8dd6  ./test-results.xml
 bcc76d46b2377fe6e3bc858ded1f6be1718b616b5f1cbe22124c3e6bc7d36b91  ./tests/requirements.txt
 388e43a1368882496bd09396f704a2cc5b7feca6bb4a630c7a1510a4eaacd731  ./tests/test_firewall_counters.py
 3a56fd21fc682fdf4285274a23e6e23dfd2cce332af494aa55b936771846bf16  ./tests/test_network_policy.py
